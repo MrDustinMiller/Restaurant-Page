@@ -23,25 +23,31 @@ function createTextContent(navItemContentDiv) {
   // create paragraph elem for nav items content
   const navItemText = document.createElement('p');
 
-  // check which navitem we clicked on to show corresponding content
+  // check which navitem we clicked on and show corresponding content
   displayActiveTabsContent(navItemContentDiv, navItemText);
   navItemContentDiv.appendChild(navItemText);
 }
 
-function createNavItemContentContainer(body, navItemClass) {
-  // create container div for nav items content
-  const navItemContentDiv = document.createElement('div');
+function checkForAndRemoveMainContentChild(mainContentDiv) {
+  const mainContent = mainContentDiv;
 
-  // set container div classname to corresponding nav item (home/menu/etc)
-  navItemContentDiv.setAttribute('class', `${navItemClass}`);
-
-  const existingContentDiv = document.querySelector(`.${navItemClass}`);
-  if (existingContentDiv) {
-    // If the content div already exists in the DOM, return
-    return;
+  if (mainContent.hasChildNodes()) {
+    // if mainContent has a child, replace w/empty string so we can show next nav items clicked content
+    mainContent.textContent = '';
   }
+}
 
-  body.appendChild(navItemContentDiv);
+function createNavItemContentContainer(mainContentDiv, navItemContentClass) {
+  const mainContent = mainContentDiv;
+  const navItemContentDiv = document.createElement('div');
+  navItemContentDiv.setAttribute('class', `${navItemContentClass}`);
+
+  // check, make own function later
+  const existingContentDiv = document.querySelector(`.${navItemContentClass}`);
+  if (existingContentDiv) return;
+
+  checkForAndRemoveMainContentChild(mainContentDiv);
+  mainContent.appendChild(navItemContentDiv);
   createTextContent(navItemContentDiv);
 }
 
