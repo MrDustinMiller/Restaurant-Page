@@ -1,31 +1,33 @@
 import loadContent from './locations';
 
-function createHeader(body, navDiv) {
+function createHeader(htmlBody, navDiv) {
   const header = document.createElement('div');
   header.setAttribute('class', 'header');
-  body.appendChild(header);
+  htmlBody.appendChild(header);
   header.appendChild(navDiv);
 }
 
-function addAllEventListeners(body, ...elements) {
+function addAllEventListeners(mainContent, ...elements) {
   const [{ homeNav, contactNav, locationsNav, menuNav }] = elements;
 
   homeNav.addEventListener('click', () => {
-    loadContent(body, 'home-nav-content');
+    loadContent(mainContent, 'home-nav-content');
   });
   contactNav.addEventListener('click', () => {
-    loadContent(body, 'contact-nav-content');
+    loadContent(mainContent, 'contact-nav-content');
   });
   locationsNav.addEventListener('click', () => {
-    loadContent(body, 'locations-nav-content');
+    loadContent(mainContent, 'locations-nav-content');
   });
   menuNav.addEventListener('click', () => {
-    loadContent(body, 'menu-nav-content');
+    loadContent(mainContent, 'menu-nav-content');
   });
 }
 
 function createNav() {
-  const body = document.querySelector('body');
+  const htmlBody = document.querySelector('body');
+  const mainContent = document.createElement('div');
+  mainContent.setAttribute('class', 'content');
   const navDiv = document.createElement('div');
   navDiv.setAttribute('class', 'nav-div');
   const homeNav = document.createElement('button');
@@ -44,8 +46,14 @@ function createNav() {
   navDiv.appendChild(contactNav);
   navDiv.appendChild(locationsNav);
   navDiv.appendChild(menuNav);
-  addAllEventListeners(body, { menuNav, homeNav, locationsNav, contactNav });
-  createHeader(body, navDiv);
+  addAllEventListeners(mainContent, {
+    menuNav,
+    homeNav,
+    locationsNav,
+    contactNav,
+  });
+  createHeader(htmlBody, navDiv);
+  htmlBody.appendChild(mainContent);
 }
 
 export default createNav;
