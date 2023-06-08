@@ -1,14 +1,9 @@
-function createTextContent(homeDiv) {
-  const contactText = document.createElement('p');
-  contactText.textContent = 'contactText';
-  homeDiv.appendChild(contactText);
-}
+import loadContent from './displayController';
 
-function createHome(body) {
-  const contactDiv = document.createElement('div');
-  contactDiv.setAttribute('class', 'home-div');
-  body.appendChild(contactDiv);
-  createTextContent(contactDiv);
+export default function test() {
+  loadContent('contact-nav-content');
+  const content = document.querySelector('.content');
+  const dialog = document.createElement('div');
+  dialog.classList.add('contact-form');
+  content.appendChild(dialog);
 }
-
-export default createHome;
