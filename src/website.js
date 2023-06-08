@@ -1,26 +1,28 @@
-import loadContent from './locations';
+import loadHome from './home';
+import loadContact from './contact';
 
 function createHeader(htmlBody, navDiv) {
   const header = document.createElement('div');
   header.setAttribute('class', 'header');
   htmlBody.appendChild(header);
+  const headerTitle = document.createElement('p');
+  headerTitle.classList.add('header-title');
+  headerTitle.textContent = 'Smokin Tides';
+  header.appendChild(headerTitle);
   header.appendChild(navDiv);
 }
 
 function addAllEventListeners(mainContent, ...elements) {
-  const [{ homeNav, contactNav, locationsNav, menuNav }] = elements;
+  const [{ homeNav, contactNav, menuNav }] = elements;
 
   homeNav.addEventListener('click', () => {
-    loadContent(mainContent, 'home-nav-content');
+    loadHome('home-nav-content');
   });
   contactNav.addEventListener('click', () => {
-    loadContent(mainContent, 'contact-nav-content');
-  });
-  locationsNav.addEventListener('click', () => {
-    loadContent(mainContent, 'locations-nav-content');
+    loadContact();
   });
   menuNav.addEventListener('click', () => {
-    loadContent(mainContent, 'menu-nav-content');
+    // load menu?
   });
 }
 
@@ -36,20 +38,15 @@ function createNav() {
   const contactNav = document.createElement('button');
   contactNav.setAttribute('class', 'nav contact-nav');
   contactNav.textContent = 'Contact';
-  const locationsNav = document.createElement('button');
-  locationsNav.setAttribute('class', 'nav locations-nav');
-  locationsNav.textContent = 'Locations';
   const menuNav = document.createElement('button');
   menuNav.setAttribute('class', 'nav menu-nav');
   menuNav.textContent = 'Menu';
   navDiv.appendChild(homeNav);
   navDiv.appendChild(contactNav);
-  navDiv.appendChild(locationsNav);
   navDiv.appendChild(menuNav);
   addAllEventListeners(mainContent, {
     menuNav,
     homeNav,
-    locationsNav,
     contactNav,
   });
   createHeader(htmlBody, navDiv);
