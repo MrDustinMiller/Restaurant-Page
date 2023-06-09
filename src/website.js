@@ -7,7 +7,7 @@ function createHeader(htmlBody, navDiv) {
   htmlBody.appendChild(header);
   const headerTitle = document.createElement('p');
   headerTitle.classList.add('header-title');
-  headerTitle.textContent = 'Smokin Tides';
+  headerTitle.textContent = 'Smoky Waters';
   header.appendChild(headerTitle);
   header.appendChild(navDiv);
 }
@@ -19,7 +19,7 @@ function addAllEventListeners(mainContent, ...elements) {
     loadHome('home-nav-content');
   });
   contactNav.addEventListener('click', () => {
-    loadContact();
+    loadContact('contact-nav-content');
   });
   menuNav.addEventListener('click', () => {
     // load menu?
