@@ -1,13 +1,14 @@
 import loadHome from './home';
 import loadContact from './contact';
+import loadMenu from './menu';
 
 function createHeader(htmlBody, navDiv) {
   const header = document.createElement('div');
   header.setAttribute('class', 'header');
   htmlBody.appendChild(header);
-  const headerTitle = document.createElement('p');
+  const headerTitle = document.createElement('div');
   headerTitle.classList.add('header-title');
-  headerTitle.textContent = 'Smoky Waters';
+  headerTitle.textContent = 'Breezy Bites';
   header.appendChild(headerTitle);
   header.appendChild(navDiv);
 }
@@ -16,13 +17,13 @@ function addAllEventListeners(mainContent, ...elements) {
   const [{ homeNav, contactNav, menuNav }] = elements;
 
   homeNav.addEventListener('click', () => {
-    loadHome('home-nav-content');
+    loadHome();
   });
   contactNav.addEventListener('click', () => {
-    loadContact('contact-nav-content');
+    loadContact();
   });
   menuNav.addEventListener('click', () => {
-    // load menu?
+    loadMenu();
   });
 }
 
