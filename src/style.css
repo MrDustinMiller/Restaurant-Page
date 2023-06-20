@@ -3,6 +3,9 @@
  --main-font: 'Pacifico';
 }
 
+.content {
+    height: 100vh;
+}
 
 body {
     margin: 0;
@@ -10,7 +13,7 @@ body {
     width: 100%; 
     height: 100%;
     box-sizing: border-box;
-    background-position: center;
+    background-position: bottom;
     background-size:cover; 
     background-repeat: no-repeat; 
     font-family: var(--main-font);
@@ -64,7 +67,7 @@ body {
 .home-nav-content{ 
     display: flex;
     align-items: center;
-    height: 50vh;
+    height: 100vh;
     width: 100%;
     background-position: center;
 }
@@ -91,7 +94,7 @@ body {
 .menu {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
 }
@@ -124,7 +127,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
 }
 
 input, textarea {
@@ -183,7 +186,7 @@ fieldset {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 70vh; */
+    height: 100vh;
 }
 
 .food-details {
