@@ -8,9 +8,9 @@ body {
     margin: 0;
     padding: 0;
     width: 100%; 
-    height: 100vh;
+    height: 100%;
     box-sizing: border-box;
-    background-position: bottom;
+    background-position: center;
     background-size:cover; 
     background-repeat: no-repeat; 
     font-family: var(--main-font);
@@ -132,7 +132,7 @@ input, textarea {
 }
 
 input[id~='email'] {
-    margin-right: 4em;
+    margin-right: 1em;
 }
 
 label {
@@ -141,6 +141,11 @@ label {
 
 fieldset {
     border: none;
+}
+
+.form-left {
+    display: flex;
+    justify-content: center;
 }
 
 .dialog-btn {
@@ -161,7 +166,7 @@ fieldset {
 
 .confirm-btn, .cancel-btn{
     height: 5vh;
-    width: 5vw;
+    /* width: 5vw; */
     background-color: #e0c4c8;
     border: 2px solid black;
     border-radius: 8px;
@@ -178,7 +183,7 @@ fieldset {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    /* height: 70vh; */
 }
 
 .food-details {
